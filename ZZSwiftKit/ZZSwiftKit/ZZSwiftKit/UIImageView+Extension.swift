@@ -9,7 +9,7 @@
 import UIKit
 
 // MARK: - Methods
-public extension UIImageView {
+extension UIImageView {
     
     /// SwifterSwift: 从URL设置图像。
     ///
