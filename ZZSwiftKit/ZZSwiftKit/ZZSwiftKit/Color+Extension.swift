@@ -1,20 +1,20 @@
 //
-//  UIColor+ZZExtension.swift
-//  ZZKit
+//  Color+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
-typealias Color = UIColor
+public typealias Color = UIColor
 
 // MARK: - Properties
 extension Color {
     
     /// SwifterSwift:随机颜色
-    static var randomColor : Color {
+    static public  var randomColor : Color {
         let r = Int(arc4random_uniform(255))
         let g = Int(arc4random_uniform(255))
         let b = Int(arc4random_uniform(255))
@@ -35,7 +35,7 @@ extension Color {
     ///   - color2: 第二种颜色混合
     ///   - intensity2: 第二色强度(默认为0.5)
     /// - Returns: 通过混合第一和seond颜色创建的颜色
-    static func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color, intensity2: CGFloat = 0.5) -> Color {
+    static public func blend(_ color1: Color, intensity1: CGFloat = 0.5, with color2: Color, intensity2: CGFloat = 0.5) -> Color {
         
         let total = intensity1 + intensity2
         let level1 = intensity1/total
@@ -81,7 +81,7 @@ extension Color {
     ///
     /// - Parameter percentage: 用来照亮颜色的百分比
     /// - Returns: 颜色变亮
-    func lighten(by percentage: CGFloat = 0.2) -> Color {
+    public func lighten(by percentage: CGFloat = 0.2) -> Color {
         
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -98,7 +98,7 @@ extension Color {
     ///
     /// - Parameter percentage: 使颜色变暗的百分比
     /// - Returns: 颜色变黑
-    func darken(by percentage: CGFloat = 0.2) -> Color {
+    public func darken(by percentage: CGFloat = 0.2) -> Color {
         
         var r: CGFloat = 0, g: CGFloat = 0, b: CGFloat = 0, a: CGFloat = 0
         self.getRed(&r, green: &g, blue: &b, alpha: &a)
@@ -120,7 +120,7 @@ extension Color {
     ///   - green: green component.
     ///   - blue: blue component.
     ///   - transparency: 可选的透明度值(默认值为1)
-    convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
+    public  convenience init?(red: Int, green: Int, blue: Int, transparency: CGFloat = 1) {
         guard red >= 0 && red <= 255 else { return nil }
         guard green >= 0 && green <= 255 else { return nil }
         guard blue >= 0 && blue <= 255 else { return nil }
@@ -137,7 +137,7 @@ extension Color {
     /// - Parameters:
     ///   - hex: hex Int (例子: 0xDECEB5)
     ///   - transparency: 可选透明度值(默认值为1)
-    convenience init?(hex: Int, transparency: CGFloat = 1) {
+    public convenience init?(hex: Int, transparency: CGFloat = 1) {
         var trans = transparency
         if trans < 0 { trans = 0 }
         if trans > 1 { trans = 1 }
@@ -154,7 +154,7 @@ extension Color {
     /// - Parameters:
     ///   - hexString: 十六进制字符串(例子:EDE7F6, 0xEDE7F6， #EDE7F6， #0ff, 0xF0F， ..)
     ///   - transparency: 透明度:可选透明度值(默认值为1)
-    convenience init?(hexString: String, transparency: CGFloat = 1) {
+    public  convenience init?(hexString: String, transparency: CGFloat = 1) {
         var string = ""
         if hexString.lowercased().hasPrefix("0x") {
             string =  hexString.replacingOccurrences(of: "0x", with: "")
@@ -185,7 +185,7 @@ extension Color {
     /// SwifterSwift: 从颜色的互补色(如果适用的话)创建颜色
     ///
     /// - Parameter color: 需要颜色的颜色
-    convenience init?(complementaryFor color: Color) {
+    public  convenience init?(complementaryFor color: Color) {
         let colorSpaceRGB = CGColorSpaceCreateDeviceRGB()
         let convertColorToRGBSpace: ((_ color: Color) -> Color?) = { color -> Color? in
             if color.cgColor.colorSpace!.model == CGColorSpaceModel.monochrome {
@@ -208,5 +208,6 @@ extension Color {
         self.init(red: r, green: g, blue: b, alpha: 1.0)
     }
 }
+
 
 

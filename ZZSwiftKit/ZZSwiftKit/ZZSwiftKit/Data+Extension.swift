@@ -1,9 +1,9 @@
 //
-//  Data+ZZExtension.swift
-//  ZZKit
+//  Data+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import UIKit
 public extension Data {
     
     /// SwifterSwift: Return data as an array of bytes.
-    var bytes: [UInt8] {
+    public var bytes: [UInt8] {
         return [UInt8](self)
     }
     
@@ -25,7 +25,7 @@ public extension Data {
     ///
     /// - Parameter encoding: encoding.
     /// - Returns: String by encoding Data using the given encoding (if applicable).
-    func string(encoding: String.Encoding) -> String? {
+    public func string(encoding: String.Encoding) -> String? {
         return String(data: self, encoding: encoding)
     }
     

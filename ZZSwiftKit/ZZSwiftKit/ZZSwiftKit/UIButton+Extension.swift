@@ -1,9 +1,9 @@
 //
-//  UIButton+ZZExtension.swift
-//  ZZKit
+//  UIButton+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import UIKit
 extension UIButton {
     
     /// SwifterSwift: 按钮禁用状态图像;还可以从Storyboard检查。
-    @IBInspectable var imageForDisabled: UIImage? {
+    @IBInspectable public var imageForDisabled: UIImage? {
         get {
             return image(for: .disabled)
         }
@@ -22,7 +22,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮高亮状态图像;还可以从Storyboard检查。
-    @IBInspectable  var imageForHighlighted: UIImage? {
+    @IBInspectable public var imageForHighlighted: UIImage? {
         get {
             return image(for: .highlighted)
         }
@@ -32,7 +32,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮正常状态图像;还可以从Storyboard检查。
-    @IBInspectable  var imageForNormal: UIImage? {
+    @IBInspectable public var imageForNormal: UIImage? {
         get {
             return image(for: .normal)
         }
@@ -42,7 +42,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮选择状态图像;还可以从Storyboard检查。
-    @IBInspectable  var imageForSelected: UIImage? {
+    @IBInspectable public var imageForSelected: UIImage? {
         get {
             return image(for: .selected)
         }
@@ -52,7 +52,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮禁用状态的标题颜色;还可以从Storyboard检查。
-    @IBInspectable  var titleColorForDisabled: UIColor? {
+    @IBInspectable public var titleColorForDisabled: UIColor? {
         get {
             return titleColor(for: .disabled)
         }
@@ -62,7 +62,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮高亮状态的标题颜色;还可以从Storyboard检查。
-    @IBInspectable  var titleColorForHighlighted: UIColor? {
+    @IBInspectable public var titleColorForHighlighted: UIColor? {
         get {
             return titleColor(for: .highlighted)
         }
@@ -72,7 +72,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮正常状态的标题颜色;还可以从Storyboard检查。
-    @IBInspectable  var titleColorForNormal: UIColor? {
+    @IBInspectable public var titleColorForNormal: UIColor? {
         get {
             return titleColor(for: .normal)
         }
@@ -82,7 +82,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮选中状态的标题颜色;还可以从Storyboard检查。
-    @IBInspectable  var titleColorForSelected: UIColor? {
+    @IBInspectable public var titleColorForSelected: UIColor? {
         get {
             return titleColor(for: .selected)
         }
@@ -92,7 +92,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮禁用状态的标题;还可以从Storyboard检查。
-    @IBInspectable  var titleForDisabled: String? {
+    @IBInspectable public var titleForDisabled: String? {
         get {
             return title(for: .disabled)
         }
@@ -102,7 +102,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮高亮状态的标题;还可以从Storyboard检查。
-    @IBInspectable  var titleForHighlighted: String? {
+    @IBInspectable public var titleForHighlighted: String? {
         get {
             return title(for: .highlighted)
         }
@@ -112,7 +112,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮正常状态标题;还可以从Storyboard检查。
-    @IBInspectable  var titleForNormal: String? {
+    @IBInspectable public  var titleForNormal: String? {
         get {
             return title(for: .normal)
         }
@@ -122,7 +122,7 @@ extension UIButton {
     }
     
     /// SwifterSwift: 按钮选择状态的标题;还可以从Storyboard检查。
-    @IBInspectable  var titleForSelected: String? {
+    @IBInspectable public var titleForSelected: String? {
         get {
             return title(for: .selected)
         }
@@ -132,3 +132,4 @@ extension UIButton {
     }
     
 }
+

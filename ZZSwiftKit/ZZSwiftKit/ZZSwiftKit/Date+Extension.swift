@@ -1,22 +1,22 @@
 //
-//  Date+ZZExtension.swift
-//  ZZKit
+//  Date+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
 // MARK: - Enums
- extension Date {
+extension Date {
     
     /// SwifterSwift: Day name format.
     ///
     /// - threeLetters: 3 letter day abbreviation of day name.
     /// - oneLetter: 1 letter day abbreviation of day name.
     /// - full: Full day name.
-     enum DayNameStyle {
+    public  enum DayNameStyle {
         case threeLetters
         case oneLetter
         case full
@@ -27,7 +27,7 @@ import UIKit
     /// - threeLetters: 3 letter month abbreviation of month name.
     /// - oneLetter: 1 letter month abbreviation of month name.
     /// - full: Full month name.
-     enum MonthNameStyle {
+    public enum MonthNameStyle {
         case threeLetters
         case oneLetter
         case full
@@ -36,10 +36,10 @@ import UIKit
 }
 
 // MARK: - Properties
- extension Date {
+extension Date {
     
     /// SwifterSwift: User’s current calendar.
-     var calendar: Calendar {
+    public var calendar: Calendar {
         return Calendar.current
     }
     
@@ -47,7 +47,7 @@ import UIKit
     ///
     ///        Date().era -> 1
     ///
-     var era: Int {
+    public var era: Int {
         return Calendar.current.component(.era, from: self)
     }
     
@@ -55,7 +55,7 @@ import UIKit
     ///
     ///        Date().quarter -> 3 // date in third quarter of the year.
     ///
-     var quarter: Int {
+    public  var quarter: Int {
         let month = Double(Calendar.current.component(.month, from: self))
         let numberOfMonths = Double(Calendar.current.monthSymbols.count)
         let numberOfMonthsInQuarter = numberOfMonths / 4
@@ -66,7 +66,7 @@ import UIKit
     ///
     ///        Date().weekOfYear -> 2 // second week in the year.
     ///
-     var weekOfYear: Int {
+    public  var weekOfYear: Int {
         return Calendar.current.component(.weekOfYear, from: self)
     }
     
@@ -74,7 +74,7 @@ import UIKit
     ///
     ///        Date().weekOfMonth -> 3 // date is in third week of the month.
     ///
-     var weekOfMonth: Int {
+    public var weekOfMonth: Int {
         return Calendar.current.component(.weekOfMonth, from: self)
     }
     
@@ -85,7 +85,7 @@ import UIKit
     ///        var someDate = Date()
     ///        someDate.year = 2000 // sets someDate's year to 2000
     ///
-     var year: Int {
+    public var year: Int {
         get {
             return Calendar.current.component(.year, from: self)
         }
@@ -106,7 +106,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.month = 10 // sets someDate's month to 10.
     ///
-     var month: Int {
+    public var month: Int {
         get {
             return Calendar.current.component(.month, from: self)
         }
@@ -129,7 +129,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.day = 1 // sets someDate's day of month to 1.
     ///
-     var day: Int {
+    public  var day: Int {
         get {
             return Calendar.current.component(.day, from: self)
         }
@@ -149,7 +149,7 @@ import UIKit
     ///
     ///     Date().weekday -> 5 // fifth day in the current week.
     ///
-     var weekday: Int {
+    public  var weekday: Int {
         return Calendar.current.component(.weekday, from: self)
     }
     
@@ -160,7 +160,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.hour = 13 // sets someDate's hour to 1 pm.
     ///
-     var hour: Int {
+    public  var hour: Int {
         get {
             return Calendar.current.component(.hour, from: self)
         }
@@ -183,7 +183,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.minute = 10 // sets someDate's minutes to 10.
     ///
-     var minute: Int {
+    public var minute: Int {
         get {
             return Calendar.current.component(.minute, from: self)
         }
@@ -206,7 +206,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.second = 15 // sets someDate's seconds to 15.
     ///
-     var second: Int {
+    public var second: Int {
         get {
             return Calendar.current.component(.second, from: self)
         }
@@ -229,7 +229,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.nanosecond = 981379985 // sets someDate's seconds to 981379985.
     ///
-     var nanosecond: Int {
+    public  var nanosecond: Int {
         get {
             return Calendar.current.component(.nanosecond, from: self)
         }
@@ -253,7 +253,7 @@ import UIKit
     ///     var someDate = Date()
     ///     someDate.millisecond = 68 // sets someDate's nanosecond to 68000000.
     ///
-     var millisecond: Int {
+    public var millisecond: Int {
         get {
             return Calendar.current.component(.nanosecond, from: self) / 1000000
         }
@@ -272,7 +272,7 @@ import UIKit
     ///
     ///     Date(timeInterval: 100, since: Date()).isInFuture -> true
     ///
-     var isInFuture: Bool {
+    public var isInFuture: Bool {
         return self > Date()
     }
     
@@ -280,7 +280,7 @@ import UIKit
     ///
     ///     Date(timeInterval: -100, since: Date()).isInPast -> true
     ///
-     var isInPast: Bool {
+    public var isInPast: Bool {
         return self < Date()
     }
     
@@ -288,7 +288,7 @@ import UIKit
     ///
     ///     Date().isInToday -> true
     ///
-     var isInToday: Bool {
+    public var isInToday: Bool {
         return Calendar.current.isDateInToday(self)
     }
     
@@ -296,7 +296,7 @@ import UIKit
     ///
     ///     Date().isInYesterday -> false
     ///
-     var isInYesterday: Bool {
+    public var isInYesterday: Bool {
         return Calendar.current.isDateInYesterday(self)
     }
     
@@ -304,32 +304,32 @@ import UIKit
     ///
     ///     Date().isInTomorrow -> false
     ///
-     var isInTomorrow: Bool {
+    public var isInTomorrow: Bool {
         return Calendar.current.isDateInTomorrow(self)
     }
     
     /// SwifterSwift: Check if date is within a weekend period.
-     var isInWeekend: Bool {
+    public var isInWeekend: Bool {
         return Calendar.current.isDateInWeekend(self)
     }
     
     /// SwifterSwift: Check if date is within a weekday period.
-     var isWorkday: Bool {
+    public var isWorkday: Bool {
         return !Calendar.current.isDateInWeekend(self)
     }
     
     /// SwifterSwift: Check if date is within the current week.
-     var isInCurrentWeek: Bool {
+    public var isInCurrentWeek: Bool {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .weekOfYear)
     }
     
     /// SwifterSwift: Check if date is within the current month.
-     var isInCurrentMonth: Bool {
+    public var isInCurrentMonth: Bool {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .month)
     }
     
     /// SwifterSwift: Check if date is within the current year.
-     var isInCurrentYear: Bool {
+    var isInCurrentYear: Bool {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: .year)
     }
     
@@ -337,7 +337,7 @@ import UIKit
     ///
     ///     Date().iso8601String -> "2017-01-12T14:51:29.574Z"
     ///
-     var iso8601String: String {
+    public var iso8601String: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone(abbreviation: "GMT")
@@ -355,7 +355,7 @@ import UIKit
     ///     date.minute = 44 // "5:44 PM"
     ///     date.nearestFiveMinutes // "5:45 PM"
     ///
-     var nearestFiveMinutes: Date {
+    public var nearestFiveMinutes: Date {
         var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 5 < 3 ? min - min % 5 : min + 5 - (min % 5)
@@ -373,7 +373,7 @@ import UIKit
     ///     date.minute = 48 // "5:48 PM"
     ///     date.nearestTenMinutes // "5:50 PM"
     ///
-     var nearestTenMinutes: Date {
+    public var nearestTenMinutes: Date {
         var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute? = min % 10 < 6 ? min - min % 10 : min + 10 - (min % 10)
@@ -391,7 +391,7 @@ import UIKit
     ///     date.minute = 40 // "5:40 PM"
     ///     date.nearestQuarterHour // "5:45 PM"
     ///
-     var nearestQuarterHour: Date {
+    public  var nearestQuarterHour: Date {
         var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 15 < 8 ? min - min % 15 : min + 15 - (min % 15)
@@ -409,7 +409,7 @@ import UIKit
     ///     date.minute = 51 // "6:51 PM"
     ///     date.nearestHalfHour // "7:00 PM"
     ///
-     var nearestHalfHour: Date {
+    public  var nearestHalfHour: Date {
         var components = Calendar.current.dateComponents([.year, .month, .day, .hour, .minute, .second, .nanosecond], from: self)
         let min = components.minute!
         components.minute! = min % 30 < 15 ? min - min % 30 : min + 30 - (min % 30)
@@ -426,7 +426,7 @@ import UIKit
     ///     date.minute = 36 // "6:36 PM"
     ///     date.nearestHour // "7:00 PM"
     ///
-     var nearestHour: Date {
+    public  var nearestHour: Date {
         let min = Calendar.current.component(.minute, from: self)
         let components: Set<Calendar.Component> = [.year, .month, .day, .hour]
         let date = Calendar.current.date(from: Calendar.current.dateComponents(components, from: self))!
@@ -441,7 +441,7 @@ import UIKit
     ///
     ///        Date().timeZone -> Europe/Istanbul (current)
     ///
-     var timeZone: TimeZone {
+    public var timeZone: TimeZone {
         return Calendar.current.timeZone
     }
     
@@ -449,14 +449,14 @@ import UIKit
     ///
     ///        Date().unixTimestamp -> 1484233862.826291
     ///
-     var unixTimestamp: Double {
+    public var unixTimestamp: Double {
         return timeIntervalSince1970
     }
     
 }
 
 // MARK: - Methods
- extension Date {
+extension Date {
     
     /// SwifterSwift: Date by adding multiples of calendar component.
     ///
@@ -470,7 +470,7 @@ import UIKit
     ///   - component: component type.
     ///   - value: multiples of components to add.
     /// - Returns: original date + multiples of component added.
-     func adding(_ component: Calendar.Component, value: Int) -> Date {
+    public  func adding(_ component: Calendar.Component, value: Int) -> Date {
         return Calendar.current.date(byAdding: component, value: value, to: self)!
     }
     
@@ -485,7 +485,7 @@ import UIKit
     /// - Parameters:
     ///   - component: component type.
     ///   - value: multiples of compnenet to add.
-     mutating func add(_ component: Calendar.Component, value: Int) {
+    public  mutating func add(_ component: Calendar.Component, value: Int) {
         if let date = Calendar.current.date(byAdding: component, value: value, to: self) {
             self = date
         }
@@ -503,7 +503,7 @@ import UIKit
     ///   - component: component type.
     ///   - value: new value of compnenet to change.
     /// - Returns: original date after changing given component to given value.
-     func changing(_ component: Calendar.Component, value: Int) -> Date? {
+    public  func changing(_ component: Calendar.Component, value: Int) -> Date? {
         switch component {
         case .nanosecond:
             let allowedRange = Calendar.current.range(of: .nanosecond, in: .second, for: self)!
@@ -567,7 +567,7 @@ import UIKit
     ///
     /// - Parameter component: calendar component to get date at the beginning of.
     /// - Returns: date at the beginning of calendar component (if applicable).
-     func beginning(of component: Calendar.Component) -> Date? {
+    public func beginning(of component: Calendar.Component) -> Date? {
         if component == .day {
             return Calendar.current.startOfDay(for: self)
         }
@@ -610,7 +610,7 @@ import UIKit
     ///
     /// - Parameter component: calendar component to get date at the end of.
     /// - Returns: date at the end of calendar component (if applicable).
-     func end(of component: Calendar.Component) -> Date? {
+    public  func end(of component: Calendar.Component) -> Date? {
         switch component {
         case .second:
             var date = adding(.second, value: 1)
@@ -672,7 +672,7 @@ import UIKit
     ///
     /// - Parameter component: calendar component to check.
     /// - Returns: true if date is in current given calendar component.
-     func isInCurrent(_ component: Calendar.Component) -> Bool {
+    public  func isInCurrent(_ component: Calendar.Component) -> Bool {
         return Calendar.current.isDate(self, equalTo: Date(), toGranularity: component)
     }
     
@@ -684,7 +684,7 @@ import UIKit
     ///
     /// - Parameter format: Date format (default is "dd/MM/yyyy").
     /// - Returns: date string.
-     func string(withFormat format: String = "dd/MM/yyyy HH:mm") -> String {
+    func string(withFormat format: String = "dd/MM/yyyy HH:mm") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
         return dateFormatter.string(from: self)
@@ -699,7 +699,7 @@ import UIKit
     ///
     /// - Parameter style: DateFormatter style (default is .medium).
     /// - Returns: date string.
-     func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
+    public  func dateString(ofStyle style: DateFormatter.Style = .medium) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = .none
         dateFormatter.dateStyle = style
@@ -715,7 +715,7 @@ import UIKit
     ///
     /// - Parameter style: DateFormatter style (default is .medium).
     /// - Returns: date and time string.
-     func dateTimeString(ofStyle style: DateFormatter.Style = .medium) -> String {
+    public  func dateTimeString(ofStyle style: DateFormatter.Style = .medium) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = style
         dateFormatter.dateStyle = style
@@ -731,7 +731,7 @@ import UIKit
     ///
     /// - Parameter style: DateFormatter style (default is .medium).
     /// - Returns: time string.
-     func timeString(ofStyle style: DateFormatter.Style = .medium) -> String {
+    public  func timeString(ofStyle style: DateFormatter.Style = .medium) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.timeStyle = style
         dateFormatter.dateStyle = .none
@@ -746,7 +746,7 @@ import UIKit
     ///
     /// - Parameter Style: style of day name (default is DayNameStyle.full).
     /// - Returns: day name string (example: W, Wed, Wednesday).
-     func dayName(ofStyle style: DayNameStyle = .full) -> String {
+    public  func dayName(ofStyle style: DayNameStyle = .full) -> String {
         // http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         let dateFormatter = DateFormatter()
         var format: String {
@@ -771,7 +771,7 @@ import UIKit
     ///
     /// - Parameter Style: style of month name (default is MonthNameStyle.full).
     /// - Returns: month name string (example: D, Dec, December).
-     func monthName(ofStyle style: MonthNameStyle = .full) -> String {
+    public func monthName(ofStyle style: MonthNameStyle = .full) -> String {
         // http://www.codingexplorer.com/swiftly-getting-human-readable-date-nsdateformatter/
         let dateFormatter = DateFormatter()
         var format: String {
@@ -792,7 +792,7 @@ import UIKit
     ///
     /// - Parameter date: date to compate self to.
     /// - Returns: number of seconds between self and given date.
-     func secondsSince(_ date: Date) -> Double {
+    public  func secondsSince(_ date: Date) -> Double {
         return timeIntervalSince(date)
     }
     
@@ -800,7 +800,7 @@ import UIKit
     ///
     /// - Parameter date: date to compate self to.
     /// - Returns: number of minutes between self and given date.
-     func minutesSince(_ date: Date) -> Double {
+    public func minutesSince(_ date: Date) -> Double {
         return timeIntervalSince(date)/60
     }
     
@@ -808,7 +808,7 @@ import UIKit
     ///
     /// - Parameter date: date to compate self to.
     /// - Returns: number of hours between self and given date.
-     func hoursSince(_ date: Date) -> Double {
+    public func hoursSince(_ date: Date) -> Double {
         return timeIntervalSince(date)/3600
     }
     
@@ -816,7 +816,7 @@ import UIKit
     ///
     /// - Parameter date: date to compate self to.
     /// - Returns: number of days between self and given date.
-     func daysSince(_ date: Date) -> Double {
+    public  func daysSince(_ date: Date) -> Double {
         return timeIntervalSince(date)/(3600*24)
     }
     
@@ -827,7 +827,7 @@ import UIKit
     ///   - endDate: endDate date to compare self to.
     ///   - includeBounds: true if the start and end date should be included (default is false)
     /// - Returns: true if the date is between the two given dates.
-     func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
+    public func isBetween(_ startDate: Date, _ endDate: Date, includeBounds: Bool = false) -> Bool {
         if includeBounds {
             return startDate.compare(self).rawValue * compare(endDate).rawValue >= 0
         }
@@ -841,7 +841,7 @@ import UIKit
     ///   - component: Calendar.Component to use.
     ///   - date: Date to compare self to.
     /// - Returns: true if the date is within a number of components of another date
-     func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
+    public func isWithin(_ value: UInt, _ component: Calendar.Component, of date: Date) -> Bool {
         let components = Calendar.current.dateComponents([component], from: self, to: date)
         let componentValue = components.value(for: component)!
         return abs(componentValue) <= value
@@ -858,7 +858,7 @@ import UIKit
     ///   - fromDate: minimum date (default is Date.distantPast)
     ///   - toDate: maximum date (default is Date.distantFuture)
     /// - Returns: random date between two dates.
-     static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
+    public static func random(from fromDate: Date = Date.distantPast, upTo toDate: Date = Date.distantFuture) -> Date {
         guard fromDate != toDate else {
             return fromDate
         }
@@ -875,7 +875,7 @@ import UIKit
 }
 
 // MARK: - Initializers
- extension Date {
+extension Date {
     
     /// SwifterSwift: Create a new date form calendar components.
     ///
@@ -892,7 +892,7 @@ import UIKit
     ///   - minute: Minute (default is current minute).
     ///   - second: Second (default is current second).
     ///   - nanosecond: Nanosecond (default is current nanosecond).
-     init?(
+    public  init?(
         calendar: Calendar? = Calendar.current,
         timeZone: TimeZone? = TimeZone.current,
         era: Int? = Date().era,
@@ -928,7 +928,7 @@ import UIKit
     ///     let date = Date(iso8601String: "2017-01-12T16:48:00.959Z") // "Jan 12, 2017, 7:48 PM"
     ///
     /// - Parameter iso8601String: ISO8601 string of format (yyyy-MM-dd'T'HH:mm:ss.SSSZ).
-     init?(iso8601String: String) {
+    public  init?(iso8601String: String) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.timeZone = TimeZone.current
@@ -945,7 +945,7 @@ import UIKit
     ///     let date = Date(unixTimestamp: 1484239783.922743) // "Jan 12, 2017, 7:49 PM"
     ///
     /// - Parameter unixTimestamp: UNIX timestamp.
-     init(unixTimestamp: Double) {
+    public  init(unixTimestamp: Double) {
         self.init(timeIntervalSince1970: unixTimestamp)
     }
     
@@ -953,7 +953,7 @@ import UIKit
     ///
     ///     let date = Date(integerLiteral: 2017_12_25) // "2017-12-25 00:00:00 +0000"
     /// - Parameter value: Int value, e.g. 20171225, or 2017_12_25 etc.
-     init?(integerLiteral value: Int) {
+    public  init?(integerLiteral value: Int) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyyMMdd"
         guard let date = formatter.date(from: String(value)) else { return nil }
@@ -961,3 +961,4 @@ import UIKit
     }
     
 }
+

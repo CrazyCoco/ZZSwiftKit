@@ -1,20 +1,20 @@
 //
 //  ZZTool.swift
-//  ZZKit
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
-class ZZTool: NSObject {
+public class ZZTool: NSObject {
     
     /// 根据date获取时间戳
     ///
     /// - Parameter date: 时间
     /// - Returns: 时间戳
-    class func getTimeStampWithDate(date: Date) -> String {
+    public class func getTimeStampWithDate(date: Date) -> String {
         
         let timeInterval:TimeInterval = date.timeIntervalSince1970
         let timeStamp = Int(timeInterval)
@@ -29,7 +29,7 @@ class ZZTool: NSObject {
     ///   - date: 时间
     ///   - formatter: 时间格式
     /// - Returns: 指定格式字符串
-    class func getTimeStringWithDateAndFormatter(date: Date,formatter: String) -> String {
+    public class func getTimeStringWithDateAndFormatter(date: Date,formatter: String) -> String {
         
         let dateFormatter = DateFormatter()
         // 时间格式："hh:mm aa dd/MM/YYYY"等
@@ -45,7 +45,7 @@ class ZZTool: NSObject {
     ///   - timeStamp: 时间戳
     ///   - formatter: 格式
     /// - Returns: 指定格式时间字符串
-    class func getTimeStringWithTimeStampAndFormatter(timeStamp: String,formatter: String) -> String {
+    public class func getTimeStringWithTimeStampAndFormatter(timeStamp: String,formatter: String) -> String {
         
         //转换为时间
         let timeInterval:TimeInterval = TimeInterval(Int(timeStamp)!)
@@ -63,7 +63,7 @@ class ZZTool: NSObject {
     ///
     /// - Parameter timeStamp: 时间戳
     /// - Returns: 返回周几
-    class func getWeek(timeStamp: String) -> String {
+    public  class func getWeek(timeStamp: String) -> String {
         
         let time = Double(timeStamp)!
         let date = NSDate.init(timeIntervalSinceReferenceDate: time)
@@ -101,7 +101,7 @@ class ZZTool: NSObject {
     ///   - logo: logo description
     ///   - size: size description
     /// - Returns: return value description
-    public func generateQRImage(QRCodeString: String, logo: UIImage?, size: CGSize = CGSize(width: 200, height: 200)) -> UIImage? {
+    public class func generateQRImage(QRCodeString: String, logo: UIImage?, size: CGSize = CGSize(width: 200, height: 200)) -> UIImage? {
         guard let data = QRCodeString.data(using: .utf8, allowLossyConversion: false) else {
             return nil
         }
@@ -135,7 +135,5 @@ class ZZTool: NSObject {
         }
         return UIGraphicsGetImageFromCurrentImageContext()
     }
-    
-    
     
 }

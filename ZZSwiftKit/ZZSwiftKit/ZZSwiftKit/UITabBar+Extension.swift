@@ -1,15 +1,15 @@
 //
-//  UITabBar+ZZExtension.swift
-//  ZZKit
+//  UITabBar+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
 // MARK: - Methods
- extension UITabBar {
+extension UITabBar {
     
     /// SwifterSwift: Set tabBar colors.
     ///
@@ -18,7 +18,7 @@ import UIKit
     ///   - selectedBackground: background color for selected tab.
     ///   - item: icon tint color for items.
     ///   - selectedItem: icon tint color for item.
-     func setColors(
+   public func setColors(
         background: UIColor? = nil,
         selectedBackground: UIColor? = nil,
         item: UIColor? = nil,
@@ -94,4 +94,5 @@ import UIKit
     }
     
 }
+
 

@@ -1,9 +1,9 @@
 //
-//  UIView+ZZExtension.swift
-//  ZZKit
+//  UIView+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
@@ -46,7 +46,7 @@ public enum ShakeAnimationType {
 extension UIView {
     
     /// SwifterSwift: Border color of view; also inspectable from Storyboard.
-    @IBInspectable var borderColor: UIColor? {
+    @IBInspectable public var borderColor: UIColor? {
         get {
             guard let color = layer.borderColor else { return nil }
             return UIColor(cgColor: color)
@@ -63,7 +63,7 @@ extension UIView {
     }
     
     /// SwifterSwift: Border width of view; also inspectable from Storyboard.
-    @IBInspectable var borderWidth: CGFloat {
+    @IBInspectable public var borderWidth: CGFloat {
         get {
             return layer.borderWidth
         }
@@ -73,7 +73,7 @@ extension UIView {
     }
     
     /// SwifterSwift: Corner radius of view; also inspectable from Storyboard.
-    @IBInspectable var cornerRadius: CGFloat {
+    @IBInspectable public var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
         }
@@ -85,7 +85,7 @@ extension UIView {
     
     
     // SwifterSwift: 视图的高度。
-    var height: CGFloat {
+   public var height: CGFloat {
         get {
             return frame.size.height
         }
@@ -96,7 +96,7 @@ extension UIView {
     
     
     /// SwifterSwift: 截屏查看(如果适用)。
-    var screenshot: UIImage? {
+  public  var screenshot: UIImage? {
         UIGraphicsBeginImageContextWithOptions(layer.frame.size, false, 0)
         defer {
             UIGraphicsEndImageContext()
@@ -107,7 +107,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 视图的阴影颜色;还可以从Storyboard检查。
-    @IBInspectable var shadowColor: UIColor? {
+    @IBInspectable public var shadowColor: UIColor? {
         get {
             guard let color = layer.shadowColor else { return nil }
             return UIColor(cgColor: color)
@@ -118,7 +118,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 视图的阴影偏移量;还可以从Storyboard检查。
-    @IBInspectable var shadowOffset: CGSize {
+    @IBInspectable public var shadowOffset: CGSize {
         get {
             return layer.shadowOffset
         }
@@ -128,7 +128,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 视图的阴影不透明度;还可以从Storyboard检查。
-    @IBInspectable var shadowOpacity: Float {
+    @IBInspectable public var shadowOpacity: Float {
         get {
             return layer.shadowOpacity
         }
@@ -138,7 +138,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 阴影视距;还可以从Storyboard检查。
-    @IBInspectable var shadowRadius: CGFloat {
+    @IBInspectable public var shadowRadius: CGFloat {
         get {
             return layer.shadowRadius
         }
@@ -148,7 +148,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 视图的大小。
-    var size: CGSize {
+   public var size: CGSize {
         get {
             return frame.size
         }
@@ -159,7 +159,7 @@ extension UIView {
     }
     
     /// SwifterSwift: 获取视图的父视图控制器
-    var parentViewController: UIViewController? {
+  public  var parentViewController: UIViewController? {
         weak var parentResponder: UIResponder? = self
         while parentResponder != nil {
             parentResponder = parentResponder!.next
@@ -171,7 +171,7 @@ extension UIView {
     }
     
     /// SwifterSwift: Width of view.
-    var width: CGFloat {
+   public var width: CGFloat {
         get {
             return frame.size.width
         }
@@ -181,7 +181,7 @@ extension UIView {
     }
     
     /// SwifterSwift: x origin of view.
-    var x: CGFloat {
+   public var x: CGFloat {
         get {
             return frame.origin.x
         }
@@ -191,7 +191,7 @@ extension UIView {
     }
     
     /// SwifterSwift: y origin of view.
-    var y: CGFloat {
+   public var y: CGFloat {
         get {
             return frame.origin.y
         }
@@ -201,7 +201,7 @@ extension UIView {
     }
     
     /// 快捷方式 frame.origin.y + frame.size.height
-    var bottom : CGFloat {
+  public  var bottom : CGFloat {
         get{
             return self.self.frame.origin.y + self.frame.size.height
         }
@@ -213,7 +213,7 @@ extension UIView {
     }
     
     /// 快捷方式 center.x
-    var centerX : CGFloat {
+   public var centerX : CGFloat {
         get{
             return self.center.x
         }
@@ -223,7 +223,7 @@ extension UIView {
     }
     
     /// 快捷方式 center.y
-    var centerY : CGFloat {
+   public var centerY : CGFloat {
         get{
             return self.center.y
         }
@@ -233,7 +233,7 @@ extension UIView {
     }
     
     ///快捷方式 frame.origin
-    var origin : CGPoint {
+   public var origin : CGPoint {
         get{
             return self.frame.origin
         }
@@ -252,7 +252,7 @@ public extension UIView {
     
     ///删除所有子视图。
     ///warning 不要在视图的drawRect:方法中调用此方法。
-    func removeAllSubViews(){
+  public  func removeAllSubViews(){
         
         while self.subviews.count > 0 {
             self.subviews.last?.removeFromSuperview()
@@ -266,7 +266,7 @@ public extension UIView {
     ///   - color: 阴影颜色
     ///   - offset: 影子抵消
     ///   - radius: 阴影半径
-    func setLayerShadow(color : UIColor, offset : CGSize, radius : CGFloat){
+   public func setLayerShadow(color : UIColor, offset : CGSize, radius : CGFloat){
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = offset
         self.layer.shadowRadius = radius
@@ -280,7 +280,7 @@ public extension UIView {
     /// - Parameters:
     ///   - corners: array of corners to change (example: [.bottomLeft, .topRight]).
     ///   - radius: radius for selected corners.
-    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+   public func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
         let maskPath = UIBezierPath(roundedRect: bounds,
                                     byRoundingCorners: corners,
                                     cornerRadii: CGSize(width: radius, height: radius))
@@ -296,7 +296,7 @@ public extension UIView {
     ///   - radius: shadow radius (default is 3).
     ///   - offset: shadow offset (default is .zero).
     ///   - opacity: shadow opacity (default is 0.5).
-    func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
+   public func addShadow(ofColor color: UIColor = UIColor(red: 0.07, green: 0.47, blue: 0.57, alpha: 1.0), radius: CGFloat = 3, offset: CGSize = .zero, opacity: Float = 0.5) {
         layer.shadowColor = color.cgColor
         layer.shadowOffset = offset
         layer.shadowRadius = radius
@@ -307,7 +307,7 @@ public extension UIView {
     /// SwifterSwift: 向视图添加一组子视图
     ///
     /// - Parameter subviews: array of subviews to add to self.
-    func addSubviews(_ subviews: [UIView]) {
+   public func addSubviews(_ subviews: [UIView]) {
         subviews.forEach({ self.addSubview($0) })
     }
     
@@ -316,7 +316,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+   public func fadeIn(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -330,7 +330,7 @@ public extension UIView {
     /// - Parameters:
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil)
-    func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+   public func fadeOut(duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if isHidden {
             isHidden = false
         }
@@ -345,17 +345,17 @@ public extension UIView {
     ///   - name: nib name.
     ///   - bundle: bundle of nib (default is nil).
     /// - Returns: optional UIView (if applicable).
-    class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
+   public class func loadFromNib(named name: String, bundle: Bundle? = nil) -> UIView? {
         return UINib(nibName: name, bundle: bundle).instantiate(withOwner: nil, options: nil)[0] as? UIView
     }
     
     /// SwifterSwift: 删除视图中的所有子视图
-    func removeSubviews() {
+   public func removeSubviews() {
         subviews.forEach({ $0.removeFromSuperview() })
     }
     
     /// SwifterSwift: 从视图中删除所有手势识
-    func removeGestureRecognizers() {
+   public func removeGestureRecognizers() {
         gestureRecognizers?.forEach(removeGestureRecognizer)
     }
     
@@ -367,7 +367,7 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is true).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+   public func rotate(byAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? CGFloat.pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, delay: 0, options: .curveLinear, animations: { () -> Void in
@@ -383,7 +383,7 @@ public extension UIView {
     ///   - animated: set true to animate rotation (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+  public  func rotate(toAngle angle: CGFloat, ofType type: AngleUnit, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         let angleWithType = (type == .degrees) ? CGFloat.pi * angle / 180.0 : angle
         let aDuration = animated ? duration : 0
         UIView.animate(withDuration: aDuration, animations: {
@@ -398,7 +398,7 @@ public extension UIView {
     ///   - animated: set true to animate scaling (default is false).
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
+   public func scale(by offset: CGPoint, animated: Bool = false, duration: TimeInterval = 1, completion: ((Bool) -> Void)? = nil) {
         if animated {
             UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: { () -> Void in
                 self.transform = self.transform.scaledBy(x: offset.x, y: offset.y)
@@ -416,7 +416,7 @@ public extension UIView {
     ///   - duration: animation duration in seconds (default is 1 second).
     ///   - animationType: shake animation type (default is .easeOut).
     ///   - completion: optional completion handler to run with animation finishes (default is nil).
-    func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
+   public func shake(direction: ShakeDirection = .horizontal, duration: TimeInterval = 1, animationType: ShakeAnimationType = .easeOut, completion:(() -> Void)? = nil) {
         
         CATransaction.begin()
         let animation: CAKeyframeAnimation
@@ -448,7 +448,7 @@ public extension UIView {
     /// - Parameters:
     ///   - withFormat: visual Format language
     ///   - views: array of views which will be accessed starting with index 0 (example: [v0], [v1], [v2]..)
-    @available(iOS 9, *) func addConstraints(withFormat: String, views: UIView...) {
+    @available(iOS 9, *) public func addConstraints(withFormat: String, views: UIView...) {
         
         var viewsDictionary: [String: UIView] = [:]
         for (index, view) in views.enumerated() {
@@ -460,7 +460,7 @@ public extension UIView {
     }
     
     /// SwifterSwift: 将视图的所有边锚定到它的父视图中
-    @available(iOS 9, *) func fillToSuperview() {
+    @available(iOS 9, *)  public func fillToSuperview() {
         
         translatesAutoresizingMaskIntoConstraints = false
         if let superview = superview {
@@ -485,7 +485,7 @@ public extension UIView {
     ///   - widthConstant: current view's width
     ///   - heightConstant: current view's height
     /// - Returns: array of newly added constraints (if applicable).
-    @available(iOS 9, *) @discardableResult func anchor(
+    @available(iOS 9, *) @discardableResult  public func anchor(
         top: NSLayoutYAxisAnchor? = nil,
         left: NSLayoutXAxisAnchor? = nil,
         bottom: NSLayoutYAxisAnchor? = nil,
@@ -533,7 +533,7 @@ public extension UIView {
     /// SwifterSwift: 锚定中心X到当前视图的父视图中，其边缘值为常数
     ///
     /// - Parameter constant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *) func anchorCenterXToSuperview(constant: CGFloat = 0) {
+    @available(iOS 9, *) public func anchorCenterXToSuperview(constant: CGFloat = 0) {
         
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerXAnchor {
@@ -544,7 +544,7 @@ public extension UIView {
     /// SwifterSwift: 将中心Y锚定到当前视图的父视图中，其边缘值为常数
     ///
     /// - Parameter withConstant: constant of the anchor constraint (default is 0).
-    @available(iOS 9, *) func anchorCenterYToSuperview(constant: CGFloat = 0) {
+    @available(iOS 9, *) public func anchorCenterYToSuperview(constant: CGFloat = 0) {
         
         translatesAutoresizingMaskIntoConstraints = false
         if let anchor = superview?.centerYAnchor {
@@ -553,7 +553,7 @@ public extension UIView {
     }
     
     /// SwifterSwift: 将中心X和Y锚定到当前视图的父视图中
-    @available(iOS 9, *) func anchorCenterSuperview() {
+    @available(iOS 9, *) public func anchorCenterSuperview() {
         
         anchorCenterXToSuperview()
         anchorCenterYToSuperview()

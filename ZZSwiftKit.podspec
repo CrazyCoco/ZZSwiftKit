@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ZZSwiftKit"
-  spec.version      = "0.0.1"
+  spec.version      = "0.0.4"
   spec.summary      = "ZZSwiftKit Swift"
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |spec|
                         ZZSwiftKit For Swift
                    DESC
 
-  spec.homepage     = "https://github.com/CrazyCoco/ZZKit"
+  spec.homepage     = "https://github.com/CrazyCoco/ZZSwiftKit"
   # spec.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -82,7 +82,7 @@ Pod::Spec.new do |spec|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  spec.source   = { :git => "https://github.com/CrazyCoco/ZZKit.git", :tag => "0.0.1" }
+  spec.source   = { :git => "https://github.com/CrazyCoco/ZZSwiftKit.git", :tag => "0.0.4" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

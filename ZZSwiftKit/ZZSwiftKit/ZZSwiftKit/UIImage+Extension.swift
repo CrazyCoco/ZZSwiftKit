@@ -1,13 +1,12 @@
 //
-//  UIImage+ZZExtension.swift
-//  ZZKit
+//  UIImage+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
-
 
 // MARK: - 初始化
 extension UIImage {
@@ -123,7 +122,7 @@ extension UIImage {
         return newImage
     }
     
-   
+    
 }
 
 
@@ -131,22 +130,22 @@ extension UIImage {
 public extension UIImage {
     
     /// SwifterSwift: Size in bytes of UIImage
-    var bytesSize: Int {
+    public var bytesSize: Int {
         return self.jpegData(compressionQuality: 1)?.count ?? 0
     }
     
     /// SwifterSwift: Size in kilo bytes of UIImage
-    var kilobytesSize: Int {
+    public  var kilobytesSize: Int {
         return bytesSize / 1024
     }
     
     /// SwifterSwift: UIImage with .alwaysOriginal rendering mode.
-    var original: UIImage {
+    public var original: UIImage {
         return withRenderingMode(.alwaysOriginal)
     }
     
     /// SwifterSwift: UIImage with .alwaysTemplate rendering mode.
-    var template: UIImage {
+    public var template: UIImage {
         return withRenderingMode(.alwaysTemplate)
     }
     
@@ -160,7 +159,7 @@ public extension UIImage {
     ///
     /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
     /// - Returns: optional UIImage (if applicable).
-    func compressed(quality: CGFloat = 0.5) -> UIImage? {
+    public func compressed(quality: CGFloat = 0.5) -> UIImage? {
         guard let data = compressedData(quality: quality) else { return nil }
         return UIImage(data: data)
     }
@@ -169,7 +168,7 @@ public extension UIImage {
     ///
     /// - Parameter quality: The quality of the resulting JPEG image, expressed as a value from 0.0 to 1.0. The value 0.0 represents the maximum compression (or lowest quality) while the value 1.0 represents the least compression (or best quality), (default is 0.5).
     /// - Returns: optional Data (if applicable).
-    func compressedData(quality: CGFloat = 0.5) -> Data? {
+    public  func compressedData(quality: CGFloat = 0.5) -> Data? {
         return self.jpegData(compressionQuality: quality)
     }
     
@@ -177,7 +176,7 @@ public extension UIImage {
     ///
     /// - Parameter rect: CGRect to crop UIImage to.
     /// - Returns: cropped UIImage
-    func cropped(to rect: CGRect) -> UIImage {
+    public func cropped(to rect: CGRect) -> UIImage {
         guard rect.size.height < size.height && rect.size.height < size.height else { return self }
         guard let image: CGImage = cgImage?.cropping(to: rect) else { return self }
         return UIImage(cgImage: image)
@@ -189,7 +188,7 @@ public extension UIImage {
     ///   - toHeight: new height.
     ///   - orientation: optional UIImage orientation (default is nil).
     /// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toHeight: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
+    public  func scaled(toHeight: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
         let scale = toHeight / size.height
         let newWidth = size.width * scale
         UIGraphicsBeginImageContext(CGSize(width: newWidth, height: toHeight))
@@ -205,7 +204,7 @@ public extension UIImage {
     ///   - toWidth: new width.
     ///   - orientation: optional UIImage orientation (default is nil).
     /// - Returns: optional scaled UIImage (if applicable).
-    func scaled(toWidth: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
+    public  func scaled(toWidth: CGFloat, with orientation: UIImage.Orientation? = nil) -> UIImage? {
         let scale = toWidth / size.width
         let newHeight = size.height * scale
         UIGraphicsBeginImageContext(CGSize(width: toWidth, height: newHeight))
@@ -219,7 +218,7 @@ public extension UIImage {
     ///
     /// - Parameter color: color to fill image with.
     /// - Returns: UIImage filled with given color.
-    func filled(withColor color: UIColor) -> UIImage {
+    public  func filled(withColor color: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         color.setFill()
         guard let context = UIGraphicsGetCurrentContext() else { return self }
@@ -244,7 +243,7 @@ public extension UIImage {
     ///   - color: color to tint image with.
     ///   - blendMode: how to blend the tint
     /// - Returns: UIImage tinted with given color.
-    func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
+    public func tint(_ color: UIColor, blendMode: CGBlendMode) -> UIImage {
         let drawRect = CGRect(x: 0.0, y: 0.0, width: size.width, height: size.height)
         UIGraphicsBeginImageContextWithOptions(size, false, scale)
         let context = UIGraphicsGetCurrentContext()
@@ -262,7 +261,7 @@ public extension UIImage {
     /// - Parameters:
     ///   - radius: corner radius (optional), resulting image will be round if unspecified
     /// - Returns: UIImage with all corners rounded
-    func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
+    public  func withRoundedCorners(radius: CGFloat? = nil) -> UIImage? {
         let maxRadius = min(size.width, size.height) / 2
         let cornerRadius: CGFloat
         if let radius = radius, radius > 0 && radius <= maxRadius {
@@ -283,3 +282,4 @@ public extension UIImage {
     }
     
 }
+

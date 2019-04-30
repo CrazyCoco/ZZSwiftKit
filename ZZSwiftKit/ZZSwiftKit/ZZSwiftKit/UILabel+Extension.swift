@@ -1,9 +1,9 @@
 //
-//  UILabel+ZZExtension.swift
-//  ZZKit
+//  UILabel+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ struct RunTimeLabelKey {
 // MARK: - 添加长按复制功能
 extension UILabel {
     
-    var isCopyable: Bool? {
+    public var isCopyable: Bool? {
         set {
             objc_setAssociatedObject(self, RunTimeLabelKey.isCopyable!, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
             //添加长按手势
@@ -76,6 +76,7 @@ extension UILabel {
     }
     
 }
+
 
 
 

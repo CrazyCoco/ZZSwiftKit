@@ -1,15 +1,15 @@
 //
-//  Dictionary+ZZExtension.swift
-//  ZZKit
+//  Dictionary+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
 // MARK: - Methods
- extension Dictionary {
+extension Dictionary {
     
     
     /// SwifterSwift: 检查字典中是否存在键
@@ -20,7 +20,7 @@ import UIKit
     ///
     /// - Parameter key: key to search for
     /// - Returns: true if key exists in dictionary.
-     func has(key: Key) -> Bool {
+    public  func has(key: Key) -> Bool {
         return index(forKey: key) != nil
     }
     
@@ -33,7 +33,7 @@ import UIKit
     ///        dict.keys.contains("key2") -> false
     ///
     /// - Parameter keys: keys to be removed
-     mutating func removeAll(keys: [Key]) {
+    public  mutating func removeAll(keys: [Key]) {
         keys.forEach({ removeValue(forKey: $0)})
     }
     
@@ -41,7 +41,7 @@ import UIKit
     ///
     /// - Parameter where: condition to evaluate each tuple entry against.
     /// - Returns: Count of entries that matches the where clousure.
-     func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool) rethrows -> Int {
+    public  func count(where condition: @escaping ((key: Key, value: Value)) throws -> Bool) rethrows -> Int {
         var count: Int = 0
         try self.forEach {
             if try condition($0) {
@@ -54,7 +54,7 @@ import UIKit
 }
 
 // MARK: - Operators
- extension Dictionary {
+extension Dictionary {
     
     /// SwifterSwift: 合并两个字典的键/值
     ///
@@ -68,7 +68,7 @@ import UIKit
     ///   - lhs: dictionary
     ///   - rhs: dictionary
     /// - Returns: An dictionary with keys and values from both.
-     static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
+    public static func + (lhs: [Key: Value], rhs: [Key: Value]) -> [Key: Value] {
         var result = lhs
         rhs.forEach { result[$0] = $1 }
         return result
@@ -85,7 +85,7 @@ import UIKit
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: dictionary
-     static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
+    public static func += (lhs: inout [Key: Value], rhs: [Key: Value]) {
         rhs.forEach { lhs[$0] = $1}
     }
     
@@ -101,7 +101,7 @@ import UIKit
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
     /// - Returns: a new dictionary with keys removed.
-     static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
+    public static func - (lhs: [Key: Value], keys: [Key]) -> [Key: Value] {
         var result = lhs
         result.removeAll(keys: keys)
         return result
@@ -118,7 +118,7 @@ import UIKit
     /// - Parameters:
     ///   - lhs: dictionary
     ///   - rhs: array with the keys to be removed.
-     static func -= (lhs: inout [Key: Value], keys: [Key]) {
+    public static func -= (lhs: inout [Key: Value], keys: [Key]) {
         lhs.removeAll(keys: keys)
     }
     

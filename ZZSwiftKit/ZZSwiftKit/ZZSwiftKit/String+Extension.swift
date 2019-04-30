@@ -1,22 +1,21 @@
 //
-//  String+ZZExtension.swift
-//  ZZKit
+//  String+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
 
-
 // MARK: - Properties
- extension String {
+extension String {
     
     /// SwifterSwift: 字符串从base64解码
     ///
     ///        "SGVsbG8gV29ybGQh".base64Decoded = Optional("Hello World!")
     ///
-    var base64Decoded: String? {
+    public   var base64Decoded: String? {
         guard let decodedData = Data(base64Encoded: self) else { return nil }
         return String(data: decodedData, encoding: .utf8)
     }
@@ -25,14 +24,14 @@ import UIKit
     ///
     ///        "Hello World!".base64Encoded -> Optional("SGVsbG8gV29ybGQh")
     ///
-    var base64Encoded: String? {
+    public  var base64Encoded: String? {
         let plainData = data(using: .utf8)
         return plainData?.base64EncodedString()
     }
     
     /// SwifterSwift: 字符串的字符数组
     ///
-    var charactersArray: [Character] {
+    public var charactersArray: [Character] {
         return Array(self)
     }
     
@@ -40,7 +39,7 @@ import UIKit
     ///
     ///        "sOme vAriable naMe".camelCased -> "someVariableName"
     ///
-    var camelCased: String {
+    public var camelCased: String {
         let source = lowercased()
         let first = source[..<source.index(after: source.startIndex)]
         if source.contains(" ") {
@@ -58,7 +57,7 @@ import UIKit
     ///
     ///        "Hello 😀".containEmoji -> true
     ///
-    var containEmoji: Bool {
+    public var containEmoji: Bool {
         for scalar in unicodeScalars {
             switch scalar.value {
             case 0x3030, 0x00AE, 0x00A9, // Special Characters
@@ -80,7 +79,7 @@ import UIKit
     ///        "Hello".firstCharacterAsString -> Optional("H")
     ///        "".firstCharacterAsString -> nil
     ///
-    var firstCharacterAsString: String? {
+    public var firstCharacterAsString: String? {
         guard let first = self.first else { return nil }
         return String(first)
     }
@@ -90,7 +89,7 @@ import UIKit
     ///        "123abc".hasLetters -> true
     ///        "123".hasLetters -> false
     ///
-    var hasLetters: Bool {
+    public  var hasLetters: Bool {
         return rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
     }
     
@@ -99,7 +98,7 @@ import UIKit
     ///        "abcd".hasNumbers -> false
     ///        "123abc".hasNumbers -> true
     ///
-    var hasNumbers: Bool {
+    public var hasNumbers: Bool {
         return rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
     }
     
@@ -108,7 +107,7 @@ import UIKit
     ///        "abc".isAlphabetic -> true
     ///        "123abc".isAlphabetic -> false
     ///
-    var isAlphabetic: Bool {
+    public var isAlphabetic: Bool {
         let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
         let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
         return hasLetters && !hasNumbers
@@ -120,7 +119,7 @@ import UIKit
     ///        "123abc".isAlphaNumeric -> true
     ///        "abc".isAlphaNumeric -> false
     ///
-    var isAlphaNumeric: Bool {
+    public var isAlphaNumeric: Bool {
         let hasLetters = rangeOfCharacter(from: .letters, options: .numeric, range: nil) != nil
         let hasNumbers = rangeOfCharacter(from: .decimalDigits, options: .literal, range: nil) != nil
         let comps = components(separatedBy: .alphanumerics)
@@ -132,12 +131,12 @@ import UIKit
     ///
     ///        "john@doe.com".isEmail -> true
     ///
-    var isEmail: Bool {
+    public var isEmail: Bool {
         return matches(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}")
     }
     
     /// 检查字符串是否是有效的电话号码
-    var isPhoneNumber: Bool{
+    public   var isPhoneNumber: Bool{
         return matches(pattern: "/^1(3[0-9]|5[189]|8[6789])[0-9]{8}$/")
     }
     
@@ -146,7 +145,7 @@ import UIKit
     ///
     ///        "https://google.com".isValidUrl -> true
     ///
-    var isValidUrl: Bool {
+    public var isValidUrl: Bool {
         return URL(string: self) != nil
     }
     
@@ -155,7 +154,7 @@ import UIKit
     ///        "https://google.com".isValidSchemedUrl -> true
     ///        "google.com".isValidSchemedUrl -> false
     ///
-    var isValidSchemedUrl: Bool {
+    public  var isValidSchemedUrl: Bool {
         guard let url = URL(string: self) else { return false }
         return url.scheme != nil
     }
@@ -164,7 +163,7 @@ import UIKit
     ///
     ///        "https://google.com".isValidHttpsUrl -> true
     ///
-    var isValidHttpsUrl: Bool {
+    public var isValidHttpsUrl: Bool {
         guard let url = URL(string: self) else { return false }
         return url.scheme == "https"
     }
@@ -173,7 +172,7 @@ import UIKit
     ///
     ///        "http://google.com".isValidHttpUrl -> true
     ///
-    var isValidHttpUrl: Bool {
+    public  var isValidHttpUrl: Bool {
         guard let url = URL(string: self) else { return false }
         return url.scheme == "http"
     }
@@ -182,7 +181,7 @@ import UIKit
     ///
     ///        "file://Documents/file.txt".isValidFileUrl -> true
     ///
-    var isValidFileUrl: Bool {
+    public var isValidFileUrl: Bool {
         return URL(string: self)?.isFileURL ?? false
     }
     
@@ -191,7 +190,7 @@ import UIKit
     ///
     /// - Parameter pattern: Pattern to verify.
     /// - Returns: true if string matches the pattern.
-    func matches(pattern: String) -> Bool {
+    public func matches(pattern: String) -> Bool {
         return range(of: pattern,
                      options: String.CompareOptions.regularExpression,
                      range: nil, locale: nil) != nil
@@ -209,7 +208,7 @@ import UIKit
     ///     "1,3".isNumeric -> true (fr_FR)
     ///        "abc".isNumeric -> false
     ///
-    var isNumeric: Bool {
+    public  var isNumeric: Bool {
         let scanner = Scanner(string: self)
         scanner.locale = NSLocale.current
         return scanner.scanDecimal(nil) && scanner.isAtEnd
@@ -221,7 +220,7 @@ import UIKit
     ///     "1.3".isDigits -> false
     ///     "abc".isDigits -> false
     ///
-    var isDigits: Bool {
+    public var isDigits: Bool {
         return CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: self))
     }
     
@@ -230,7 +229,7 @@ import UIKit
     ///        "Hello".lastCharacterAsString -> Optional("o")
     ///        "".lastCharacterAsString -> nil
     ///
-    var lastCharacterAsString: String? {
+    public var lastCharacterAsString: String? {
         guard let last = self.last else { return nil }
         return String(last)
     }
@@ -239,7 +238,7 @@ import UIKit
     ///
     ///        "Hèllö Wórld!".latinized -> "Hello World!"
     ///
-    var latinized: String {
+    public  var latinized: String {
         return folding(options: .diacriticInsensitive, locale: Locale.current)
     }
     
@@ -249,7 +248,7 @@ import UIKit
     ///        "False".bool -> false
     ///        "Hello".bool = nil
     ///
-    var bool: Bool? {
+    public var bool: Bool? {
         let selfLowercased = trimmed.lowercased()
         if selfLowercased == "true" || selfLowercased == "1" {
             return true
@@ -263,7 +262,7 @@ import UIKit
     ///
     ///        "   hello  \n".trimmed -> "hello"
     ///
-    var trimmed: String {
+    public  var trimmed: String {
         return trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
@@ -272,7 +271,7 @@ import UIKit
     ///
     ///        "2007-06-29".date -> Optional(Date)
     ///
-    var date: Date? {
+    public var date: Date? {
         let selfLowercased = trimmed.lowercased()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
@@ -284,7 +283,7 @@ import UIKit
     ///
     ///        "2007-06-29 14:23:09".dateTime -> Optional(Date)
     ///
-    var dateTime: Date? {
+    public var dateTime: Date? {
         let selfLowercased = trimmed.lowercased()
         let formatter = DateFormatter()
         formatter.timeZone = TimeZone.current
@@ -296,7 +295,7 @@ import UIKit
     ///
     ///        "101".int -> 101
     ///
-    var int: Int? {
+    public  var int: Int? {
         return Int(self)
     }
     
@@ -305,7 +304,7 @@ import UIKit
     ///        "https://google.com".url -> URL(string: "https://google.com")
     ///        "not url".url -> nil
     ///
-    var url: URL? {
+    public var url: URL? {
         return URL(string: self)
     }
     
@@ -314,7 +313,7 @@ import UIKit
     ///
     ///        "it's%20easy%20to%20decode%20strings".urlDecoded -> "it's easy to decode strings"
     ///
-    var urlDecoded: String {
+    public var urlDecoded: String {
         return removingPercentEncoding ?? self
     }
     
@@ -322,7 +321,7 @@ import UIKit
     ///
     ///        "it's easy to encode strings".urlEncoded -> "it's%20easy%20to%20encode%20strings"
     ///
-    var urlEncoded: String {
+    public  var urlEncoded: String {
         return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }
     
@@ -330,47 +329,47 @@ import UIKit
     ///
     ///        "   \n Swifter   \n  Swift  ".withoutSpacesAndNewLines -> "SwifterSwift"
     ///
-    var withoutSpacesAndNewLines: String {
+    public  var withoutSpacesAndNewLines: String {
         return replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "\n", with: "")
     }
     
     /// SwifterSwift: 检查给定的字符串是否只包含空格
-    var isWhitespace: Bool {
+    public  var isWhitespace: Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
     
 }
 
 // MARK: - NSString extensions
- extension String {
+extension String {
     
     /// SwifterSwift: NSString from a string.
-     var nsString: NSString {
+    public  var nsString: NSString {
         return NSString(string: self)
     }
     
     /// SwifterSwift: NSString lastPathComponent.
-     var lastPathComponent: String {
+    public var lastPathComponent: String {
         return (self as NSString).lastPathComponent
     }
     
     /// SwifterSwift: NSString pathExtension.
-     var pathExtension: String {
+    public  var pathExtension: String {
         return (self as NSString).pathExtension
     }
     
     /// SwifterSwift: NSString deletingLastPathComponent.
-     var deletingLastPathComponent: String {
+    public  var deletingLastPathComponent: String {
         return (self as NSString).deletingLastPathComponent
     }
     
     /// SwifterSwift: NSString deletingPathExtension.
-     var deletingPathExtension: String {
+    public  var deletingPathExtension: String {
         return (self as NSString).deletingPathExtension
     }
     
     /// SwifterSwift: NSString pathComponents.
-     var pathComponents: [String] {
+    public var pathComponents: [String] {
         return (self as NSString).pathComponents
     }
     
@@ -378,7 +377,7 @@ import UIKit
     ///
     /// - Parameter str: the path component to append to the receiver.
     /// - Returns: a new string made by appending aString to the receiver, preceded if necessary by a path separator.
-     func appendingPathComponent(_ str: String) -> String {
+    public func appendingPathComponent(_ str: String) -> String {
         return (self as NSString).appendingPathComponent(str)
     }
     
@@ -386,8 +385,9 @@ import UIKit
     ///
     /// - Parameter str: The extension to append to the receiver.
     /// - Returns: a new string made by appending to the receiver an extension separator followed by ext (if applicable).
-     func appendingPathExtension(_ str: String) -> String? {
+    public  func appendingPathExtension(_ str: String) -> String? {
         return (self as NSString).appendingPathExtension(str)
     }
 }
+
 

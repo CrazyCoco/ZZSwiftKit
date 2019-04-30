@@ -1,9 +1,9 @@
 //
-//  UIImageView+ZZExtension.swift
-//  ZZKit
+//  UIImageView+Extension.swift
+//  ZZSwiftKit
 //
-//  Created by GODKILLER on 2019/4/28.
-//  Copyright © 2019 ZZKit. All rights reserved.
+//  Created by GODKILLER on 2019/4/29.
+//  Copyright © 2019 ZZSwiftKit. All rights reserved.
 //
 
 import UIKit
@@ -18,7 +18,7 @@ public extension UIImageView {
     ///   - contentMode: imageView content mode (default is .scaleAspectFit).
     ///   - placeHolder: optional placeholder image
     ///   - completionHandler: optional completion handler to run when download finishs (default is nil).
-    func download(
+    public  func download(
         from url: URL,
         contentMode: UIView.ContentMode = .scaleAspectFit,
         placeholder: UIImage? = nil,
@@ -46,7 +46,7 @@ public extension UIImageView {
     /// SwifterSwift: 使图像视图模糊
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
-    func blur(withStyle style: UIBlurEffect.Style = .light) {
+    public func blur(withStyle style: UIBlurEffect.Style = .light) {
         let blurEffect = UIBlurEffect(style: style)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = bounds
@@ -59,10 +59,11 @@ public extension UIImageView {
     ///
     /// - Parameter style: UIBlurEffectStyle (default is .light).
     /// - Returns: blurred version of self.
-    func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
+    public  func blurred(withStyle style: UIBlurEffect.Style = .light) -> UIImageView {
         let imgView = self
         imgView.blur(withStyle: style)
         return imgView
     }
     
 }
+
