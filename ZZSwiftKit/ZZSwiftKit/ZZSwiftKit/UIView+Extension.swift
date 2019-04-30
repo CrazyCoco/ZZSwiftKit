@@ -248,7 +248,7 @@ extension UIView {
 
 
 // MARK: - Methods
-public extension UIView {
+extension UIView {
     
     ///删除所有子视图。
     ///warning 不要在视图的drawRect:方法中调用此方法。

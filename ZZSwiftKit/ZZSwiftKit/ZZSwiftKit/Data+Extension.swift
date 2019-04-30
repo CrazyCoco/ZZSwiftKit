@@ -12,7 +12,7 @@ import UIKit
 public extension Data {
     
     /// SwifterSwift: Return data as an array of bytes.
-    public var bytes: [UInt8] {
+     var bytes: [UInt8] {
         return [UInt8](self)
     }
     
@@ -25,7 +25,7 @@ public extension Data {
     ///
     /// - Parameter encoding: encoding.
     /// - Returns: String by encoding Data using the given encoding (if applicable).
-    public func string(encoding: String.Encoding) -> String? {
+     func string(encoding: String.Encoding) -> String? {
         return String(data: self, encoding: encoding)
     }
     

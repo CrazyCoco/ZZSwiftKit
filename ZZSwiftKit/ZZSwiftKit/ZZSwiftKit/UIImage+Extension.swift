@@ -127,7 +127,7 @@ extension UIImage {
 
 
 // MARK: - Properties
-public extension UIImage {
+ extension UIImage {
     
     /// SwifterSwift: Size in bytes of UIImage
     public var bytesSize: Int {
@@ -153,7 +153,7 @@ public extension UIImage {
 
 
 // MARK: - Methods
-public extension UIImage {
+extension UIImage {
     
     /// SwifterSwift: Compressed UIImage from original UIImage.
     ///
